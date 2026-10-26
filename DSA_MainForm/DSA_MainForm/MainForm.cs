@@ -9,6 +9,7 @@ namespace DSA_MainForm
         private readonly Exercise1Control exercise1 = new Exercise1Control();
         private readonly Exercise2Control exercise2 = new Exercise2Control();
         private readonly Exercise3Control exercise3 = new Exercise3Control();
+        private readonly Exercise4 exercise4 = new Exercise4();
 
         public MainForm()
         {
@@ -26,5 +27,6 @@ namespace DSA_MainForm
         private void btnExercise1_Click(object sender, EventArgs e) => ShowControl(exercise1);
         private void btnExercise2_Click(object sender, EventArgs e) => ShowControl(exercise2);
         private void btnExercise3_Click(object sender, EventArgs e) => ShowControl(exercise3);
+        private void btnExercise4_Click(object sender, EventArgs e) => ShowControl(exercise4);
     }
 }

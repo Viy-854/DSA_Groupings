@@ -91,7 +91,7 @@
             listBoxStack.FormattingEnabled = true;
             listBoxStack.Location = new Point(315, 76);
             listBoxStack.Name = "listBoxStack";
-            listBoxStack.Size = new Size(150, 104);
+            listBoxStack.Size = new Size(150, 224);
             listBoxStack.TabIndex = 11;
             // 
             // IsEmpty

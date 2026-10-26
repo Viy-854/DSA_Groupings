@@ -16,7 +16,7 @@ namespace DSA_MainForm
         {
             try
             {
-                string result = _handler.Evaluate(expressionInput.Text);
+                double result = _handler.Evaluate(expressionInput.Text);
                 lblResult.Text = "Final expression: " + result;
             }
             catch (DivideByZeroException ex)
@@ -32,6 +32,14 @@ namespace DSA_MainForm
                 // Show the trace even when an error occurs (the last row is the error).
                 evaluationTable.DataSource = _handler.Steps;
             }
+        }
+
+        private void clearAll(object sender, EventArgs e)
+        {
+
+            expressionInput.Text = "";
+            lblResult.Text = "";
+
         }
     }
 }

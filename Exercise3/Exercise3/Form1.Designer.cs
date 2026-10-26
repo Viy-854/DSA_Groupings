@@ -26,6 +26,7 @@ namespace Exercise3
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblStackSize;
+        private System.Windows.Forms.ComboBox cboBase;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -68,6 +69,7 @@ namespace Exercise3
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.lblStackSize = new System.Windows.Forms.Label();
+            this.cboBase = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.sldSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).BeginInit();
             this.SuspendLayout();
@@ -119,6 +121,19 @@ namespace Exercise3
             this.rdoStep.TabIndex = 4;
             this.rdoStep.Text = "Step-by-step";
             this.rdoStep.UseVisualStyleBackColor = true;
+            // 
+            // cboBase
+            // 
+            this.cboBase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBase.FormattingEnabled = true;
+            this.cboBase.Items.AddRange(new object[] {
+            "Binary (base 2)",
+            "Octal (base 8)"});
+            this.cboBase.Location = new System.Drawing.Point(190, 38);
+            this.cboBase.Name = "cboBase";
+            this.cboBase.Size = new System.Drawing.Size(140, 21);
+            this.cboBase.TabIndex = 12;
+            this.cboBase.SelectedIndex = 0;
             // 
             // btnPrev
             // 
@@ -263,8 +278,9 @@ namespace Exercise3
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.txtDecimal);
+            this.Controls.Add(this.cboBase);
             this.Name = "Form1";
-            this.Text = "Decimal → Binary Converter (Stack Visualizer)";
+            this.Text = "Decimal Converter (Stack Visualizer)";
             ((System.ComponentModel.ISupportInitialize)(this.sldSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).EndInit();
             this.ResumeLayout(false);

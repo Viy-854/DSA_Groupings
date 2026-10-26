@@ -10,6 +10,7 @@ namespace Exercise3
     {
         private StackModel.Step[] steps = null;
         private int stepIndex = 0; // next step to execute (0-based)
+        private int conversionBase = 2;
         private System.Windows.Forms.Timer playTimer;
 
         public Form1()
@@ -31,9 +32,11 @@ private void PlayTimer_Tick(object sender, EventArgs e)
         {
             lblError.Text = string.Empty;
             if (!ValidateInput(out int n)) return;
-            steps = StackModel.CreateSteps(n).ToArray();
+            conversionBase = cboBase.SelectedIndex == 1 ? 8 : 2;
+            steps = StackModel.CreateSteps(n, conversionBase).ToArray();
             stepIndex = 0;
             dgvLog.Rows.Clear();
+            dgvLog.Columns[2].HeaderText = "÷" + conversionBase;
             pnlStack.Controls.Clear();
             lblPopSeq.Text = string.Empty;
             lblResult.Text = string.Empty;
@@ -45,7 +48,7 @@ private void PlayTimer_Tick(object sender, EventArgs e)
             {
                 if (s.Op == StackModel.StepOp.Push)
                 {
-                    dgvLog.Rows.Add(stepNum.ToString(), s.N.ToString(), "2", s.Q.ToString(), s.R.ToString(), "push");
+                    dgvLog.Rows.Add(stepNum.ToString(), s.N.ToString(), conversionBase.ToString(), s.Q.ToString(), s.R.ToString(), "push");
                     stepNum++;
                 }
                 else
@@ -132,7 +135,7 @@ private void PlayTimer_Tick(object sender, EventArgs e)
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(lblResult.Text)) Clipboard.SetText(lblResult.Text.Replace("₂",""));
+            if (!string.IsNullOrEmpty(lblResult.Text)) Clipboard.SetText(lblResult.Text.Replace("₂", "").Replace("₈", ""));
         }
 
         private bool ValidateInput(out int n)
@@ -158,7 +161,7 @@ private void PlayTimer_Tick(object sender, EventArgs e)
                 var lbl = new Label();
                 lbl.Text = s.R.ToString();
                 lbl.TextAlign = ContentAlignment.MiddleCenter;
-                lbl.BackColor = s.R == 1 ? Color.LightBlue : Color.LightGray;
+                lbl.BackColor = s.R != 0 ? Color.LightBlue : Color.LightGray;
                 lbl.BorderStyle = BorderStyle.FixedSingle;
                 lbl.Size = new Size(64, 40);
                 // insert at top (controls collection uses Z-order; we position manually)
@@ -208,13 +211,13 @@ private void PlayTimer_Tick(object sender, EventArgs e)
                 // pop remaining
                 var cells = pnlStack.Controls.Cast<Control>().Where(c => c.Tag as string == "cell").OrderBy(c => c.Location.Y).ToList();
                 var bits = cells.Select(c => c.Text).Reverse();
-                lblResult.Text = string.Join("", bits) + "₂";
+                lblResult.Text = string.Join("", bits) + (conversionBase == 2 ? "₂" : "₈");
                 lblStatus.Text = "Done — result ready.";
             }
             else
             {
                 var bits = lblPopSeq.Text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                lblResult.Text = string.Join("", bits) + "₂";
+                lblResult.Text = string.Join("", bits) + (conversionBase == 2 ? "₂" : "₈");
                 lblStatus.Text = "Done — result ready.";
             }
             UpdateStateDone();
@@ -236,12 +239,12 @@ private void PlayTimer_Tick(object sender, EventArgs e)
 
         private void UpdateStateIdle()
         {
-            btnConvert.Enabled = true; btnReset.Enabled = true;
+            btnConvert.Enabled = true; btnReset.Enabled = true; cboBase.Enabled = true;
             btnPrev.Enabled = false; btnNext.Enabled = false; btnPlay.Enabled = false; btnPause.Enabled = false; sldSpeed.Enabled = false; btnCopy.Enabled = false;
         }
         private void UpdateStateDividing()
         {
-            btnConvert.Enabled = false; btnReset.Enabled = true;
+            btnConvert.Enabled = false; btnReset.Enabled = true; cboBase.Enabled = false;
             btnPrev.Enabled = true; btnNext.Enabled = true; btnPlay.Enabled = true; btnPause.Enabled = true; sldSpeed.Enabled = true; btnCopy.Enabled = false;
         }
         private void UpdateStatePlaying()
@@ -250,7 +253,7 @@ private void PlayTimer_Tick(object sender, EventArgs e)
         }
         private void UpdateStateDone()
         {
-            btnConvert.Enabled = true; btnReset.Enabled = true; btnCopy.Enabled = true;
+            btnConvert.Enabled = true; btnReset.Enabled = true; btnCopy.Enabled = true; cboBase.Enabled = true;
             btnPrev.Enabled = false; btnNext.Enabled = false; btnPlay.Enabled = false; btnPause.Enabled = false; sldSpeed.Enabled = false;
         }
 

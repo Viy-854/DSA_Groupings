@@ -7,3 +7,12 @@ C:\Users\user\source\repos\Exercise3\Exercise3\bin\Debug\Exercise3.exe
 C:\Users\user\source\repos\Exercise3\Exercise3\bin\Debug\Exercise3.pdb
 C:\Users\user\source\repos\Exercise3\Exercise3\obj\Debug\Exercise3.exe
 C:\Users\user\source\repos\Exercise3\Exercise3\obj\Debug\Exercise3.pdb
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\bin\Debug\Exercise3.exe.config
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\bin\Debug\Exercise3.exe
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\bin\Debug\Exercise3.pdb
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\obj\Debug\Exercise3.csproj.AssemblyReference.cache
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\obj\Debug\Exercise3.Properties.Resources.resources
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\obj\Debug\Exercise3.csproj.GenerateResource.cache
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\obj\Debug\Exercise3.csproj.CoreCompileInputs.cache
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\obj\Debug\Exercise3.exe
+C:\myCode\DSA_Groupings-Exercise3\Exercise3\Exercise3\obj\Debug\Exercise3.pdb

@@ -14,9 +14,12 @@ namespace Exercise3
             public int R { get; set; }
         }
 
-        // Produce ordered steps: pushes for each division, then pops
-        public static List<Step> CreateSteps(int n)
+        // Produce ordered steps: pushes for each division, then pops.
+        public static List<Step> CreateSteps(int n, int radix)
         {
+            if (radix != 2 && radix != 8)
+                throw new ArgumentOutOfRangeException(nameof(radix), "Only binary and octal conversions are supported.");
+
             var steps = new List<Step>();
             if (n == 0)
             {
@@ -28,8 +31,8 @@ namespace Exercise3
             var stack = new List<int>();
             while (cur > 0)
             {
-                int q = cur / 2;
-                int r = cur % 2;
+                int q = cur / radix;
+                int r = cur % radix;
                 steps.Add(new Step { Op = StepOp.Push, N = cur, Q = q, R = r });
                 stack.Add(r);
                 cur = q;

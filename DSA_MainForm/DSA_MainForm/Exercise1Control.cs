@@ -24,7 +24,7 @@ namespace DSA_MainForm
                 else
                 {
                     myStack.Push(number);
-                    RefreshStackDisplay();
+                    // RefreshStackDisplay();
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace DSA_MainForm
                 return;
             }
             myStack.Pop();
-            RefreshStackDisplay();
+            // RefreshStackDisplay();
         }
 
         private void btnPeek_Click(object sender, EventArgs e)

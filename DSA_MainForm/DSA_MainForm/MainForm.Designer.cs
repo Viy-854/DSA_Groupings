@@ -21,6 +21,7 @@
             btnExercise1 = new Button();
             btnExercise2 = new Button();
             btnExercise3 = new Button();
+            btnExercise4 = new Button();
             pnlContainer = new Panel();
             pnlNav.SuspendLayout();
             SuspendLayout();
@@ -30,6 +31,7 @@
             pnlNav.Controls.Add(btnExercise3);
             pnlNav.Controls.Add(btnExercise2);
             pnlNav.Controls.Add(btnExercise1);
+            pnlNav.Controls.Add(btnExercise4);
             pnlNav.Dock = DockStyle.Top;
             pnlNav.Location = new Point(0, 0);
             pnlNav.Name = "pnlNav";
@@ -65,6 +67,16 @@
             btnExercise3.Text = "Exercise 3";
             btnExercise3.UseVisualStyleBackColor = true;
             btnExercise3.Click += btnExercise3_Click;
+            //
+            // btnExercise4
+            //
+            btnExercise4.Location = new Point(450, 8);
+            btnExercise4.Name = "btnExercise4";
+            btnExercise4.Size = new Size(140, 34);
+            btnExercise4.TabIndex = 3;
+            btnExercise4.Text = "Exercise 4";
+            btnExercise4.UseVisualStyleBackColor = true;
+            btnExercise4.Click += btnExercise4_Click;
             // 
             // pnlContainer
             // 
@@ -94,6 +106,7 @@
         private Button btnExercise1;
         private Button btnExercise2;
         private Button btnExercise3;
+        private Button btnExercise4;
         private Panel pnlContainer;
     }
 }

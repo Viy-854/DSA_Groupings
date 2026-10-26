@@ -67,6 +67,7 @@
             clearBtn.Size = new Size(120,30);
             clearBtn.Name = "clearBtn";
             clearBtn.Text = "Clear";
+            clearBtn.Click += clearAll;
 
 
             flowLayout.Controls.Add(expressionInput);
